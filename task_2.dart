@@ -1,26 +1,21 @@
 void main() {
-  // task 1
-  void execute(Function function) {
-    function();
-  }
+  List<int> numList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  execute(() => print('Hello DART'));
+  var a = numList.map((e) => e + 1);
+  print(a.toList());
 
-  //task 2
-  int square(int number) => number * number;
-  String greet(String name) => 'Hello $name';
-  bool isEven(int number) => number % 2 == 0;
+  var b = numList.firstWhere((e) => e > 5);
+  print(b);
 
-  //task 3
-  int addition(int num1, int num2) => num1 + num2;
-  int subtraction(int num1, int num2) => num1 - num2;
-  int multiplication(int num1, int num2) => num1 * num2;
-  void fn(int num1, int num2, int Function(int, int) callbackFn) {
-    final result = callbackFn(num1, num2);
-    print('The result is $result');
-  }
+  var c = numList.lastWhere((e) => e < 5);
+  print(c);
 
-  fn(10, 20, addition);
-  fn(10, 20, subtraction);
-  fn(10, 20, multiplication);
+  var d = numList.where((e) => e % 2 == 0);
+  print(d.toList());
+
+  var e = numList.reduce((a, b) => a + b);
+  print(e);
+
+  var f = numList.fold(0, (a, b) => a + b);
+  print(f);
 }
